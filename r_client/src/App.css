@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 /* 
 .App-logo {
   width: 1.5em;
@@ -8,7 +6,9 @@
   filter: invert();
   
 } */
-.App-logo {
+
+
+.logo {
   width: 20vw; /* 20% of the viewport width */
   max-width: 200px;
   min-width: 80px;
