@@ -4,19 +4,9 @@ import '../App.css'
 
 const Home = () => {
   return (
-    <div className="text-center cover-container d-flex align-items-center h-100 p-3 mx-auto flex-column">
+    <div className="text-center cover-container d-flex  h-100 p-3 mx-auto flex-column justify-content-between">
        {/* <img src="/anoutPage.jpg" alt="Background" className="absolute top-0 left-0 w-full h-full object-cover z-0" /> */}
   
-      {/* <header className="masthead mb-auto">
-        <div className="inner">
-          <h3 className="masthead-brand"> </h3>
-          <nav className="nav nav-masthead justify-content-center">
-            <a className="nav-link active" href="#">Home</a>
-            <a className="nav-link" href="#">Features</a>
-            <a className="nav-link" href="#">Contact</a>
-          </nav>
-        </div>
-      </header> */}
 
       <main role="main" className="inner cover align-self-center mt-5 pt-5 px-0">
         <img src="/logo.png" alt="Logo" className="logo m-2"  />

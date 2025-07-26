@@ -6,7 +6,7 @@ function Footer() {
          <footer className="mastfoot mt-auto">
         <div className="">
           <p>
-            Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.
+           Rajahmundry || Portofolio Project <a href="b-dev-portofolio.vercel.app">Gjnana Sai Reddy</a> 
           </p>
         </div>
       </footer>
