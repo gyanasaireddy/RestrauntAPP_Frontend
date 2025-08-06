@@ -3,10 +3,10 @@ import "../App.css";
 
 function Footer() {
   return (
-         <footer className="mastfoot mt-auto">
+         <footer className="mastfoot mt-auto ">
         <div className="">
           <p>
-           Rajahmundry || Portofolio Project <a href="b-dev-portofolio.vercel.app">Gjnana Sai Reddy</a> 
+           Portofolio Project <a href="https://web-dev-portofolio.vercel.app/">Gjnana Sai Reddy</a> 
           </p>
         </div>
       </footer>

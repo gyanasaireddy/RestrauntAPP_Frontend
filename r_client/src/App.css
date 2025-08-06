@@ -83,7 +83,7 @@ body {
   content: "";
   position: absolute;
   inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
-  background: rgba(0, 0, 0, 0.6); /* Adjust 0.4 → darkness level */
+  background: rgba(0, 0, 0, 0.3); /* Adjust 0.4 → darkness level */
   z-index: 1;
 }
 
@@ -164,6 +164,7 @@ body {
 }
 
 
+
 /* Menu */
 
 .menu-overlay {
@@ -177,4 +178,81 @@ body {
 .Menu-container {
   position: relative;
   z-index: 1;
+  width: 100%;
 }
+
+.menu-card-button:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+.meal-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.meal-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.scrollable-menu {
+  max-height: 300px; 
+  
+  /* Adjust height as needed */
+  overflow-y: auto;
+  padding-right: 5px; /* Space for scrollbar */
+
+}
+
+/* Optional: style the scrollbar */
+.scrollable-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollable-menu::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+
+}
+@media (max-width: 768px) {
+.menu-wrapper {
+  position: relative; /* Position for overlay */
+  max-height: calc(100vh - 200px);  /* Controls visible height */
+  overflow: hidden;   /* Hide scroll beyond boundary */
+}
+
+.menu-container {
+    max-height: calc(100vh - 200px);  /* Controls visible height */
+
+  overflow-y: auto;
+  padding-bottom: 60px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.menu-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Blur stays fixed because it's on the wrapper */
+.menu-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0) 0%,
+    rgba(26, 26, 26, 0.8) 100%
+  );
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+}
+
+
+
