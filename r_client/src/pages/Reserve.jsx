@@ -27,7 +27,7 @@ const Reservation = () => {
 
   const handleReservation = () => {
     // Placeholder logic
-    console.log({ name, phone, guests, date, time });
+    // console.log({ name, phone, guests, date, time });
     alert("Feature coming soon: Table availability check");
   };
 

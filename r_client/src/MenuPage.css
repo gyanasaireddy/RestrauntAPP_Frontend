@@ -1,74 +1,33 @@
-/* src/MenuPage.css */
+/* MenuPage.css */
 
-/* ---------- base / mobile-first ---------- */
- .menu-page-container {
+/* ---------- Base / mobile-first ---------- */
+.menu-page-container {
   width: 100%;
   min-height: 100vh;
   padding: 2rem 1rem;
-  background: transparent;
-  box-sizing: border-box;
   color: #fff;
+  box-sizing: border-box;
+  background: transparent;
 }
 
-/* scrollable wrapper for mobile — keeps card list inside viewport and scrollable */
+/* Scrollable list for mobile */
 .menu-scroll {
-  max-height: calc(100vh - 140px); /* leave room for header/footer if any */
+  max-height: calc(100vh - 140px); /* adjust for header/footer height */
   overflow-y: auto;
   padding-right: 8px;
   -webkit-overflow-scrolling: touch;
 }
 
-/* hide scrollbar but keep scrolling */
-.menu-scroll::-webkit-scrollbar { display: none; }
-.menu-scroll { scrollbar-width: none; -ms-overflow-style: none; }
-
-/* stacked layout on mobile */
-.menu-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  max-width: 980px;
-  margin: 0 auto;
-  padding-bottom: 2rem;
+/* Hide scrollbar but keep scroll functionality */
+.menu-scroll::-webkit-scrollbar {
+  display: none;
+}
+.menu-scroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-/* ensure MealCard's internal .col (if present) expands */
-.menu-grid > * { width: 100%; }
-
-/* ---------- desktop: big grid & normal page scroll ---------- */
-@media (min-width: 992px) {
-  .menu-page-container { padding: 4rem 3rem; }
-
-  /* disable internal scroll on desktop so whole page scrolls normally */
-  .menu-scroll {
-    max-height: none;
-    overflow: visible;
-  }
-
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    align-items: start;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .menu-grid > * { width: auto; }
-} */
-/* MenuPage.css */
-
-/* Common styles */
-.menu-page-container {
-  width: 100%;
-  min-height: 100vh;
-  padding: 2rem 1rem;
-  /* background: linear-gradient(180deg, #050509 0%, #0f0f13 100%); */
-  color: #fff;
-  box-sizing: border-box;
-}
-
-/* Grid for mobile: stacked cards */
+/* Mobile: stacked cards */
 .menu-grid {
   display: flex;
   flex-direction: column;
@@ -80,25 +39,38 @@
 
 /* Card styling */
 .meal-card {
-  overflow: visible;
   background: #1a1a1a;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible;
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s;
+  z-index: 1;
 }
 .meal-card:hover {
-  transform: translateY(-6px) scale(1.02);
+  z-index: 5;
+  transform: translateY(-8px) scale(1.02);
 }
 
-/* Image wrapper */
+/* Image styling (uniform size) */
 .meal-card img {
   width: 100%;
-  height: 250px; /* Uniform height for all images */
+  height: 250px;
   object-fit: cover;
   border-radius: 12px 12px 0 0;
 }
 
-/* Desktop / laptop view */
+/* ---------- Desktop / laptop ---------- */
 @media (min-width: 992px) {
+  .menu-page-container {
+    padding: 4rem 3rem;
+  }
+
+  /* Disable internal scroll on desktop */
+  .menu-scroll {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
   .menu-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -107,14 +79,13 @@
     margin: 0 auto;
   }
 
-  /* All cards same height */
+  /* Equal height cards */
   .meal-card {
     height: 100%;
     display: flex;
     flex-direction: column;
   }
 
-  /* Equalize the card body height */
   .meal-card .card-body {
     flex-grow: 1;
     display: flex;
@@ -123,26 +94,17 @@
   }
 }
 
-/* Mobile adjustments */
+/* ---------- Mobile adjustments ---------- */
 @media (max-width: 991px) {
   .meal-card img {
-    height: 200px; /* Smaller images for mobile */
+    height: 200px;
   }
 }
 
-
-/* ---------- meal card safe-area (prevent clipping hover) ---------- */
-.meal-card {
-  overflow: visible; /* allow shadow/popout on hover */
-  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
-  z-index: 1;
-}
-.meal-card:hover { z-index: 5; transform: translateY(-8px) scale(1.02); }
-
-/* keep image wrapper cropping only image */
-.meal-card .meal-card-img-wrapper { overflow: hidden; border-radius: 12px; }
-
-/* small polish for larger screens */
-@media (min-width:1200px) {
-  .menu-page-container { padding-top: 5rem; padding-bottom: 5rem; }
+/* ---------- Large screen polish ---------- */
+@media (min-width: 1200px) {
+  .menu-page-container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 }
