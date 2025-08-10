@@ -1,30 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../MealCard.css';
 
 const MealCard = ({ title, description, time, image, onClick }) => {
   return (
-    <div className="col  ">
+    <div className="col">
       <div
-        className="card text-bg-dark shadow-sm meal-card "
+        className="card text-bg-dark shadow-sm meal-card"
         onClick={onClick}
         role="button"
-        style={{ cursor: 'pointer',textDecoration:'none' }}
       >
-        <img
-          src={image}
-          className="card-img-top"
-          alt={`${title} image`}
-          style={{ height: '225px', objectFit: 'cover' }}
-        />
+        <div className="meal-card-img-wrapper">
+          <img
+            src={image}
+            className="card-img-top meal-card-img"
+            alt={`${title} image`}
+          />
+        </div>
 
         <div className="card-body">
-          {/* Title & time on one line */}
           <div className="d-flex justify-content-between align-items-center mb-2">
             <strong>{title}</strong>
-            <small className="text-body-primary">{time}</small>
+            <small className="text-light">{time}</small>
           </div>
-
-          {/* Description */}
           <p className="card-text">{description}</p>
         </div>
       </div>

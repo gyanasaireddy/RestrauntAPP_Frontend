@@ -38,8 +38,8 @@ export default function PreloaderWrapper({ imageUrls, children }) {
     <>
       {!loaded ? (
         <div className="preloader">
-          <div className="spinner"></div>
-          <p>Loading menu...</p>
+          <div className="loader"></div>
+          {/* <p>Loading menu...</p> */}
         </div>
       ) : (
         <div className="fade-in">{children}</div>

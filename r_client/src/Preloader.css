@@ -41,3 +41,92 @@
     opacity: 1;
   }
 }
+.loader {
+    position: relative;
+    width: 120px;
+    height: 14px;
+    border-radius: 0 0 15px 15px;
+    background-color: #fff; /* Changed pan color to white */
+    border: 3px solid #2d3436; /* Added a dark outline */
+    box-shadow: none; /* Removed the old shadow */
+    animation: pan-motion 1.2s ease-in-out infinite; /* Improved animation */
+    transform-origin: 170px 0;
+    z-index: 10;
+    perspective: 300px;
+}
+
+.loader::before {
+  content: '';
+  position: absolute;
+  left: calc(100% - 2px);
+  top: -3px; /* Adjusted position to align with new border */
+  z-index: -2;
+  height: 10px;
+  width: 70px;
+  border-radius: 0 4px 4px 0;
+  background-repeat: no-repeat;
+  /* Simplified handle to use one color, matching the pan's outline */
+  background-image:
+    linear-gradient(#2d3436, #2d3436),
+    linear-gradient(#2d3436, #2d3436),
+    linear-gradient(#2d3436, #2d3436);
+  background-size: 50px 10px , 4px 8px , 24px 4px;
+  background-position: right center , 17px center , 0px center;
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: -2;
+    transform: translate(-50% , -20px) rotate3d(75, -2, 3, 78deg);
+    width: 55px;
+    height: 53px;
+    background: #fff;
+    /* Kept the essential egg colors */
+    background-image:
+        radial-gradient(circle 3px , #fff6 90%, transparent 10%),
+        radial-gradient(circle 12px , #ffc400 90%, transparent 10%),
+        radial-gradient(circle 12px , #ffae00 100%, transparent 0);
+    background-repeat: no-repeat;
+    background-position: -4px -6px , -2px -2px , -1px -1px;
+    /* Softened the shadow on the egg */
+    box-shadow: 0 0 4px #0002 inset, -2px -3px #0001 inset;
+    border-radius: 47% 36% 50% 50% / 49% 45% 42% 44%;
+    animation: egg-motion 1.2s ease-in-out infinite; /* Improved animation */
+}
+
+/* New, smoother animation for the egg flip */
+@keyframes egg-motion {
+  0%, 100% {
+    transform: translate(-50%, -20px) rotate3d(90, 0, 0, 90deg);
+    opacity: 0;
+  }
+  10%, 90% {
+    transform: translate(-50%, -30px) rotate3d(90, 0, 0, 90deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-50%, -50px) rotate3d(85, 15, 2, 70deg);
+  }
+  50% {
+    transform: translate(-55%, -65px) rotate3d(75, -8, 3, 50deg);
+  }
+  75% {
+    transform: translate(-50%, -50px) rotate3d(75, -5, 2, 70deg);
+  }
+}
+
+/* New, smoother animation for the pan's motion */
+@keyframes pan-motion {
+  0% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+  100% {
+    transform: rotate(-8deg);
+  }
+}
