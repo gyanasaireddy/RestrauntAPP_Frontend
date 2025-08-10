@@ -1,10 +1,14 @@
 import React from "react";
 // import './Home.css'; // Optional: put your styles here or use Tailwind/Bootstrap as needed
 import "../App.css";
-
+import PreloaderWrapper from "./Preloader";
 const Home = () => {
+  const imageUrls = ["/logo.png", "/aboutPage.jpg"];
   return (
-       <div
+     <PreloaderWrapper imageUrls={imageUrls}>
+
+     
+    <div
       className="d-flex justify-content-center align-items-center p-2 my-2"
       style={{ height: "90vh" }}
     >
@@ -31,7 +35,10 @@ const Home = () => {
             </span>
           </p>
           <p className="lead">
-            <a href="/reserve" className="btn btn-lg btn-outline-light fw-bold px-4">
+            <a
+              href="/reserve"
+              className="btn btn-lg btn-outline-light fw-bold px-4"
+            >
               Reserve
             </a>
           </p>
@@ -47,6 +54,7 @@ const Home = () => {
         </main>
       </div>
     </div>
+    </PreloaderWrapper>
   );
 };
 

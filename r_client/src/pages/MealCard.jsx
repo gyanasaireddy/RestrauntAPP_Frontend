@@ -5,10 +5,10 @@ const MealCard = ({ title, description, time, image, onClick }) => {
   return (
     <div className="col  ">
       <div
-        className="card text-bg-dark shadow-sm meal-card"
+        className="card text-bg-dark shadow-sm meal-card "
         onClick={onClick}
         role="button"
-        style={{ cursor: 'pointer' }}
+        style={{ cursor: 'pointer',textDecoration:'none' }}
       >
         <img
           src={image}

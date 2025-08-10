@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import MealCard from "./MealCard";
 import MealMenu from "./MealMenu";
 import { Link } from "react-router-dom";
-
+import PreloaderWrapper from "./Preloader";
+const imageUrls = ['/breakfast.jpg','/lunch.jpg','/dinner.jpg']
 const MenuPage = () => {
   const [selectedMenu, setSelectedMenu] = useState(null);
 
@@ -52,6 +53,7 @@ const MenuPage = () => {
   };
 
   return (
+     <PreloaderWrapper imageUrls={imageUrls}>
     <div
       className="container d-flex justify-content-center align-items-center pt-5"
       style={{ height: "80vh" }}
@@ -101,6 +103,7 @@ const MenuPage = () => {
         />
       )}
     </div>
+    </PreloaderWrapper>
   );
 };
 

@@ -1,7 +1,9 @@
 import React from "react";
-
+import PreloaderWrapper from "./Preloader";
+const imageUrls = ['/bing_generated_qrcode.png']
 const Contact = () => {
   return (
+     <PreloaderWrapper imageUrls={imageUrls}>
     <div
       className="d-flex justify-content-center align-items-center p-2"
       style={{ height: "90vh" }}
@@ -54,6 +56,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    </PreloaderWrapper>
   );
 };
 
