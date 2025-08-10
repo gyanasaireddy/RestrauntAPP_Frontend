@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const MealCard = ({ title, description, time, image, onClick }) => {
   return (
-    <div className="col mt-5 ">
+    <div className="col  ">
       <div
         className="card text-bg-dark shadow-sm meal-card"
         onClick={onClick}

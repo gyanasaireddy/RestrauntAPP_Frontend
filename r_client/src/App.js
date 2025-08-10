@@ -18,13 +18,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/menu/breakfast" element={<Menu />} />
+        <Route path="/menu/lunch" element={<Menu />} />
+        <Route path="/menu/dinner" element={<Menu />} />
+
+
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/reserve" element={<Reserve />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/panel" element={<AdminPanel />} />
       </Routes>
-      <Footer />
 
     </Router>
   );

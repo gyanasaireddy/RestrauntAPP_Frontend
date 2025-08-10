@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MealCard from "./MealCard";
 import MealMenu from "./MealMenu";
+import { Link } from "react-router-dom";
 
 const MenuPage = () => {
   const [selectedMenu, setSelectedMenu] = useState(null);
@@ -51,31 +52,40 @@ const MenuPage = () => {
   };
 
   return (
-    <div className="container  pt-5">
+    <div
+      className="container d-flex justify-content-center align-items-center pt-5"
+      style={{ height: "80vh" }}
+    >
       {!selectedMenu ? (
         <div className="menu-wrapper">
           <div className="row menu-container row-cols-1 row-cols-md-3 g-4">
-            <MealCard
-              title="Breakfast"
-              description="Begin your day with nourishing dishes cooked in the warmth of tradition."
-              time="7:00 AM – 11:00 AM"
-              image="/breakfast.jpg"
-              onClick={() => setSelectedMenu("breakfast")}
-            />
-            <MealCard
-              title="Lunch"
-              description="Midday meals bringing together regional flavors and fresh ingredients."
-              time="12:00 PM – 3:00 PM"
-              image="/lunch.jpg"
-              onClick={() => setSelectedMenu("lunch")}
-            />
-            <MealCard
-              title="Dinner"
-              description="End your day with soulful dishes simmered to perfection."
-              time="7:00 PM – 11:00 PM"
-              image="/dinner.jpg"
-              onClick={() => setSelectedMenu("dinner")}
-            />
+            <Link to="/menu/breakfast">
+              <MealCard
+                title="Breakfast"
+                description="Begin your day with nourishing dishes cooked in the warmth of tradition."
+                time="7:00 AM – 11:00 AM"
+                image="/breakfast.jpg"
+                onClick={() => setSelectedMenu("breakfast")}
+              />
+            </Link>
+            <Link to="/menu/lunch">
+              <MealCard
+                title="Lunch"
+                description="Midday meals bringing together regional flavors and fresh ingredients."
+                time="12:00 PM – 3:00 PM"
+                image="/lunch.jpg"
+                onClick={() => setSelectedMenu("lunch")}
+              />
+            </Link>
+            <Link to="/menu/dinner">
+              <MealCard
+                title="Dinner"
+                description="End your day with soulful dishes simmered to perfection."
+                time="7:00 PM – 11:00 PM"
+                image="/dinner.jpg"
+                onClick={() => setSelectedMenu("dinner")}
+              />
+            </Link>
           </div>
         </div>
       ) : (
@@ -85,7 +95,9 @@ const MenuPage = () => {
           }
           specials={menus[selectedMenu].specials}
           items={menus[selectedMenu].items}
-          onBack={() => setSelectedMenu(null)}
+          onBack={() => {
+            <Link to="/menu"></Link>
+            setSelectedMenu(null)}}
         />
       )}
     </div>
